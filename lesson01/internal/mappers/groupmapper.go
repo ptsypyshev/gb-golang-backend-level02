@@ -11,8 +11,8 @@ type GroupStore interface {
 	Read(ctx context.Context, id int) (*models.Group, error)
 	Update(ctx context.Context, id int, m map[string]any) error
 	Delete(ctx context.Context, id int) error
-	AddMember(ctx context.Context, userID int) error
-	RemoveMember(ctx context.Context, userID int) error
+	AddMember(ctx context.Context, user *models.User, group *models.Group) error
+	RemoveMember(ctx context.Context, user *models.User, group *models.Group) error
 	SearchGroupByName(ctx context.Context, groupName string) (chan models.Group, error)
 	SearchGroupByMemberName(ctx context.Context, userName string) (chan models.Group, error)
 }
@@ -43,11 +43,11 @@ func (gm *GroupMapper) Delete(ctx context.Context, id int) error {
 	return nil
 }
 
-func (gm *GroupMapper) AddMember(ctx context.Context, userID int) error {
+func (gm *GroupMapper) AddMember(ctx context.Context, user *models.User, group *models.Group) error {
 	return nil
 }
 
-func (gm *GroupMapper) RemoveMember(ctx context.Context, userID int) error {
+func (gm *GroupMapper) RemoveMember(ctx context.Context, user *models.User, group *models.Group) error {
 	return nil
 }
 

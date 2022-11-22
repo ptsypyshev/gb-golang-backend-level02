@@ -9,6 +9,7 @@ const (
 
 type Group struct {
 	ID int
-	kind int
-	users []User
+	GroupName string
+	Kind int
+	Users []*User
 }

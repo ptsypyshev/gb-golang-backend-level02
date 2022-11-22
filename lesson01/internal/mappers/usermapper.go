@@ -11,8 +11,8 @@ type UserStore interface {
 	Read(ctx context.Context, id int) (*models.User, error)
 	Update(ctx context.Context, id int, m map[string]any) error
 	Delete(ctx context.Context, id int) error
-	JoinGroup(ctx context.Context, groupId int) error
-	LeaveGroup(ctx context.Context, groupId int) error
+	JoinGroup(ctx context.Context, user *models.User, group *models.Group) error
+	LeaveGroup(ctx context.Context, user *models.User, group *models.Group) error
 	SearchUsersByName(ctx context.Context, userName string) (chan models.User, error)
 	SearchUsersByGroupName(ctx context.Context, groupName string) (chan models.User, error)
 }
@@ -43,11 +43,11 @@ func (um *UserMapper) Delete(ctx context.Context, id int) error {
 	return nil
 }
 
-func (um *UserMapper) JoinGroup(ctx context.Context, groupId int) error {
+func (um *UserMapper) JoinGroup(ctx context.Context, user *models.User, group *models.Group) error {
 	return nil
 }
 
-func (um *UserMapper) LeaveGroup(ctx context.Context, groupId int) error {
+func (um *UserMapper) LeaveGroup(ctx context.Context, user *models.User, group *models.Group) error {
 	return nil
 }
 
